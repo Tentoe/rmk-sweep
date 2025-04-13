@@ -17,7 +17,7 @@
           combine [
             minimal.rustc
             minimal.cargo
-            targets.thumbv7em-none-eabihf.latest.rust-std
+            # targets.thumbv6m-none-eabi.latest.rust-std
           ];
 
         naersk' = naersk.lib.${system}.override {
@@ -36,6 +36,7 @@
         # For `nix develop`:
         devShell = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
+            rustup
             rustc
             cargo
             rust-analyzer
@@ -44,6 +45,7 @@
             flip-link # zero-cost stack overflow protection.
             cargo-make # used to automate uf2 generation.
             probe-rs-tools # arm debugging and flashing
+            taplo
           ];
           shellHook = ''
             export SHELL="fish"

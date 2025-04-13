@@ -9,6 +9,8 @@ chip = "rp2040"
 # [matrix]
 # not used for split keyboards
 
+
+
 [layout]
 rows = 4
 cols = 10
@@ -16,9 +18,9 @@ layers = 8
 keymap = [
     [
         ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", ],
-        ["MT(A, LShift)", "LT(5, S)", "LT(1, D)", "LT(3, F)", "G", "H", "LT(4, J)", "LT(2, K)", "LT(6, L)", "MT(Semicolon, LShift)", ],
-        ["MT(Z, LGui)", "MT(X, LCtrl)", "MT(C, LAlt)", "V", "B", "N", "M", "MT(Comma, LAlt)", "MT(Dot, LCtrl)", "MT(Slash, LGui)", ],
-        ["_", "_", "_", "Enter", "Space", "Backspace", "Tab", "_", "_", "_", ],
+        ["MT(A, LGui)", "MT(S, LAlt)", "MT(D, LCtrl)", "MT(F, LShift)", "G", "H", "MT(J, LShift)", "MT(K, LCtrl)", "MT(L, LAlt)", "MT(Semicolon, LGui)", ],
+        ["Z", "MT(X, RAlt)", "C", "V", "B", "N", "M", "Comma", "MT(Dot, RAlt)", "Slash", ],
+        ["_", "_", "_", "Backspace", "Enter", "Tab", "Space", "_", "_", "_", ],
     ],
     [
         ["_", "_", "_", "MouseBtn3", "_", "_", "MouseBtn1", "MouseWheelUp", "MouseBtn2", "MouseBtn3", ],
@@ -69,6 +71,14 @@ keymap = [
 
 [behavior]
 tap_hold = { enable_hrm = true, prior_idle_time = "120ms", hold_timeout = "250ms", post_wait_time = "50ms"}
+
+[behavior.combo]
+timeout = "150ms"
+combos = [
+  { actions = ["Backspace", "Enter"], output = "Delete" },
+  { actions = ["Tab", "Space"], output = "Esc" },
+]
+
 
 [split]
 connection = "serial"
