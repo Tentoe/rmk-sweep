@@ -1,74 +1,105 @@
 [keyboard]
-name = "rust-kb-sweep"
-product_name = "rust-kb-sweep"
-vendor_id = 0x4c4b
-product_id = 0x4643
-manufacturer = "haobo"
+name = "Ferris sweep"
+product_name = "Ferris sweep"
+vendor_id = 0xc2ab
+product_id = 0x3939
+manufacturer = "DPB"
 chip = "rp2040"
 
 # [matrix]
-# Input and output pins are mandatory
-# input_pins = ["PIN_6", "PIN_7", "PIN_8", "PIN_9"]
-# output_pins = ["PIN_19", "PIN_20", "PIN_21"]
-# WARNING: Currently row2col/col2row is set in RMK's feature gate, configs here do nothing actually
-# row2col = true
+# not used for split keyboards
 
 [layout]
 rows = 4
-cols = 3
-layers = 2
+cols = 10
+layers = 8
 keymap = [
     [
-        ["A", "B", "C"],
-        ["Kc1", "Kc2", "Kc3"],
-        ["LCtrl", "MO(1)", "LShift"],
-        ["OSL(1)", "LT(2, Kc9)", "LM(1, LShift | LGui)"]
+        ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", ],
+        ["MT(A, LShift)", "LT(5, S)", "LT(1, D)", "LT(3, F)", "G", "H", "LT(4, J)", "LT(2, K)", "LT(6, L)", "MT(Semicolon, LShift)", ],
+        ["MT(Z, LGui)", "MT(X, LCtrl)", "MT(C, LAlt)", "V", "B", "N", "M", "MT(Comma, LAlt)", "MT(Dot, LCtrl)", "MT(Slash, LGui)", ],
+        ["_", "_", "_", "Enter", "Space", "Backspace", "Tab", "_", "_", "_", ],
     ],
     [
-        ["_", "TT(1)", "TG(2)"],
-        ["_", "_", "_"],
-        ["_", "_", "_"],
-        ["_", "_", "_"]
+        ["_", "_", "_", "MouseBtn3", "_", "_", "MouseBtn1", "MouseWheelUp", "MouseBtn2", "MouseBtn3", ],
+        ["_", "MouseBtn2", "_", "MouseBtn1", "_", "_", "MouseLeft", "MouseDown", "MouseUp", "MouseRight", ],
+        ["_", "_", "_", "_", "_", "_", "MouseWheelLeft", "MouseWheelDown", "MouseWheelRight", "_", ],
+        ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", ],
+    ],
+    [
+        ["WM(Kc1, LShift)", "Quote", "WM(Backslash, LShift)", "WM(Minus, LShift)", "WM(Slash, LShift)", "_", "WM(Equal, LShift)", "_", "_", "_", ],
+        ["WM(Kc4, LShift)", "WM(Quote, LShift)", "Slash", "WM(Grave, LShift)", "WM(Kc3, LShift)", "_", "WM(Kc7, LShift)", "_", "WM(Kc8, LShift)", "WM(Kc6, LShift)", ],
+        ["WM(Kc2, LShift)", "Grave", "Backslash", "Minus", "WM(Kc5, LShift)", "_", "Equal", "_", "_", "_", ],
+        ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", ],
+    ],
+    [
+        ["_", "_", "_", "_", "_", "_", "_", "PageUp", "_", "_", ],
+        ["_", "_", "_", "_", "_", "_", "Left", "Down", "UP", "Right", ],
+        ["_", "_", "_", "_", "_", "_", "Home", "PageDown", "End", "_", ],
+        ["_", "_", "_", "_", "Escape", "Delete", "RCtrl", "_", "_", "_", ],
+    ],
+    [
+        ["_", "_", "WM(Comma, LShift)", "WM(Dot, LShift)", "_", "_", "_", "_", "_", "_", ],
+        ["WM(RightBracket, LShift)", "WM(LeftBracket, LShift)", "WM(Kc9, LShift)", "WM(Kc0, LShift)", "_", "_", "_", "_", "_", "_", ],
+        ["_", "_", "RightBracket", "LeftBracket", "_", "_", "_", "_", "_", "_", ],
+        ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", ],
+    ],
+    [
+        ["_", "_", "_", "Slash", "WM(Kc8, LShift)", "WM(Kc9, LShift)", "Kc7", "Kc8", "Kc9", "WM(Kc0, LShift)", ],
+        ["_", "_", "Equal", "Minus", "WM(Equal, LShift)", "Kc0", "Kc4", "Kc5", "Kc6", "Dot", ],
+        ["_", "_", "_", "WM(Kc8, LShift)", "WM(Kc5, LShift)", "WM(Comma, LShift)", "Kc1", "Kc2", "Kc3", "WM(Dot, LShift)", ],
+        ["_", "_", "_", "_", "_", "Enter", "_", "_", "_", "_", ],
+    ],
+    [
+        ["_", "F7", "F8", "F9", "F10", "_", "_", "_", "_", "_", ],
+        ["_", "F4", "F5", "F6", "F11", "_", "_", "_", "_", "_", ],
+        ["_", "F1", "F2", "F3", "F12", "_", "_", "_", "_", "_", ],
+        ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", ],
+    ],
+    # extra just for use by VIAL if I want to have another layer without reflashing.
+    [
+        ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", ],
+        ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", ],
+        ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", ],
+        ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", ],
     ],
 ]
 
 [storage]
 
+[behavior]
+tap_hold = { enable_hrm = true, prior_idle_time = "120ms", hold_timeout = "250ms", post_wait_time = "50ms"}
+
 [split]
 connection = "serial"
 
+# we are defining the left side to be our primary.
 [split.central]
-rows = 2
-cols = 2
+rows = 4
+cols = 5
 row_offset = 0
 col_offset = 0
-serial = [
-    { instance = "UART0", tx_pin = "PIN_0", rx_pin = "PIN_1" },
-    { instance = "UART1", tx_pin = "PIN_4", rx_pin = "PIN_5" },
-]
+serial = [{ instance = "PIO0", tx_pin = "PIN_1", rx_pin = "PIN_1" }]
 [split.central.matrix]
-matrix_type = "normal"
-input_pins = ["PIN_9", "PIN_11"]
-output_pins = ["PIN_10", "PIN_12"]
+matrix_type = "direct_pin"
+direct_pins=[
+    ["PIN_7", "PIN_26", "PIN_27", "PIN_28", "PIN_29", ],
+    ["PIN_22", "PIN_20", "PIN_23", "PIN_21", "PIN_0", ],
+    ["PIN_2", "PIN_3", "PIN_4", "PIN_5", "PIN_6", ],
+    ["_", "_", "_", "PIN_8", "PIN_9", ],
+]
 
 [[split.peripheral]]
-rows = 2
-cols = 1
-row_offset = 2
-col_offset = 2
-serial = [{ instance = "UART0", tx_pin = "PIN_0", rx_pin = "PIN_1" }]
+rows = 4
+cols = 5
+row_offset = 0
+col_offset = 5
+serial = [{ instance = "PIO0", tx_pin = "PIN_1", rx_pin = "PIN_1" }]
 [split.peripheral.matrix]
-matrix_type = "normal"
-input_pins = ["PIN_9", "PIN_11"]
-output_pins = ["PIN_10"]
-
-[[split.peripheral]]
-rows = 2
-cols = 1
-row_offset = 2
-col_offset = 2
-serial = [{ instance = "UART0", tx_pin = "PIN_0", rx_pin = "PIN_1" }]
-[split.peripheral.matrix]
-matrix_type = "normal"
-input_pins = ["PIN_9", "PIN_11"]
-output_pins = ["PIN_10"]
+matrix_type = "direct_pin"
+direct_pins=[
+    ["PIN_29", "PIN_28", "PIN_27", "PIN_26", "PIN_7", ],
+    ["PIN_0", "PIN_21", "PIN_23", "PIN_20", "PIN_22", ],
+    ["PIN_6", "PIN_5", "PIN_4", "PIN_3", "PIN_2", ],
+    ["PIN_9", "PIN_8", "_", "_", "_", ],
+]
