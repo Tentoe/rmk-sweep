@@ -14,69 +14,65 @@ chip = "rp2040"
 [layout]
 rows = 4
 cols = 10
-layers = 8
+layers = 7
 keymap = [
-    [
+    [ # 0 BASE
         ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", ],
         ["MT(A, LGui)", "MT(S, LAlt)", "MT(D, LCtrl)", "MT(F, LShift)", "G", "H", "MT(J, LShift)", "MT(K, LCtrl)", "MT(L, LAlt)", "MT(Semicolon, LGui)", ],
         ["Z", "MT(X, RAlt)", "C", "V", "B", "N", "M", "Comma", "MT(Dot, RAlt)", "Slash", ],
-        ["_", "_", "_", "Backspace", "Enter", "Tab", "Space", "_", "_", "_", ],
+        ["_", "_", "LT(1, Delete)", "LT(2, Backspace)", "LT(3, Enter)", "LT(4, Tab)", "LT(5, Space)", "LT(6, Escape)", "_", "_", ],
     ],
-    [
-        ["_", "_", "_", "MouseBtn3", "_", "_", "MouseBtn1", "MouseWheelUp", "MouseBtn2", "MouseBtn3", ],
-        ["_", "MouseBtn2", "_", "MouseBtn1", "_", "_", "MouseLeft", "MouseDown", "MouseUp", "MouseRight", ],
-        ["_", "_", "_", "_", "_", "_", "MouseWheelLeft", "MouseWheelDown", "MouseWheelRight", "_", ],
-        ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", ],
+    [ # 1 FUN
+        ["_", "_", "_", "_", "_", "PrintScreen", "F7", "F8", "F9", "F12", ],
+        ["LGui", "LAlt", "LCtrl", "LShift", "_", "ScrollLock", "F4", "F5", "F6", "F11", ],
+        ["_", "RAlt", "_", "_", "_", "Pause", "F1", "F2", "F3", "F10", ],
+        ["_", "_", "_", "_", "_", "Menu", "_", "_", "_", "_", ],
     ],
-    [
-        ["WM(Kc1, LShift)", "Quote", "WM(Backslash, LShift)", "WM(Minus, LShift)", "WM(Slash, LShift)", "_", "WM(Equal, LShift)", "_", "_", "_", ],
-        ["WM(Kc4, LShift)", "WM(Quote, LShift)", "Slash", "WM(Grave, LShift)", "WM(Kc3, LShift)", "_", "WM(Kc7, LShift)", "_", "WM(Kc8, LShift)", "WM(Kc6, LShift)", ],
-        ["WM(Kc2, LShift)", "Grave", "Backslash", "Minus", "WM(Kc5, LShift)", "_", "Equal", "_", "_", "_", ],
-        ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", ],
+    [ # 2 NUM
+        ["_", "_", "_", "_", "_", "LeftBracket", "Kc7", "Kc8", "Kc9", "RightBracket", ],
+        ["LGui", "LAlt", "LCtrl", "LShift", "_", "Equal", "Kc4", "Kc5", "Kc6", "Semicolon", ],
+        ["_", "RAlt", "_", "_", "_", "Backslash", "Kc1", "Kc2", "Kc3", "Grave", ],
+        ["_", "_", "_", "_", "_", "Minus", "Kc0", "Dot", "_", "_", ],
     ],
-    [
-        ["_", "_", "_", "_", "_", "_", "_", "PageUp", "_", "_", ],
-        ["_", "_", "_", "_", "_", "_", "Left", "Down", "UP", "Right", ],
-        ["_", "_", "_", "_", "_", "_", "Home", "PageDown", "End", "_", ],
-        ["_", "_", "_", "_", "Escape", "Delete", "RCtrl", "_", "_", "_", ],
+    [ # 3 SYM
+        ["_", "_", "_", "_", "_", "SHIFTED(LeftBracket)","SHIFTED(Kc7)", "SHIFTED(Kc8)", "SHIFTED(Kc9)", "SHIFTED(RightBracket)", ],
+        ["LGui", "LAlt", "LCtrl", "LShift", "_", "SHIFTED(Equal)", "SHIFTED(Kc4)", "SHIFTED(Kc5)", "SHIFTED(Kc6)", "SHIFTED(Semicolon)", ],
+        ["_", "RAlt", "_", "_", "_", "SHIFTED(Backslash)", "SHIFTED(Kc1)", "SHIFTED(Kc2)", "SHIFTED(Kc3)", "SHIFTED(Grave)", ],
+        ["_", "_", "_", "_", "_", "SHIFTED(Kc9)", "SHIFTED(Kc9)", "SHIFTED(Minus)", "_", "_", ],
     ],
-    [
-        ["_", "_", "WM(Comma, LShift)", "WM(Dot, LShift)", "_", "_", "_", "_", "_", "_", ],
-        ["WM(RightBracket, LShift)", "WM(LeftBracket, LShift)", "WM(Kc9, LShift)", "WM(Kc0, LShift)", "_", "_", "_", "_", "_", "_", ],
-        ["_", "_", "RightBracket", "LeftBracket", "_", "_", "_", "_", "_", "_", ],
-        ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", ],
+    [ # 4 Mouse
+        ["_", "_", "_", "_", "_", "Again", "Paste", "Copy", "Cut", "Undo", ],
+        ["LGui", "LAlt", "LCtrl", "LShift", "_", "MouseLeft", "MouseDown", "MouseUp", "MouseRight", "_", ],
+        ["_", "RAlt", "_", "_", "_", "MouseWheelLeft", "MouseWheelDown", "MouseWheelUp", "MouseWheelRight", "_", ],
+        ["_", "_", "MouseBtn3", "MouseBtn1", "MouseBtn2", "_", "_", "_", "_", "_", ],
     ],
-    [
-        ["_", "_", "_", "Slash", "WM(Kc8, LShift)", "WM(Kc9, LShift)", "Kc7", "Kc8", "Kc9", "WM(Kc0, LShift)", ],
-        ["_", "_", "Equal", "Minus", "WM(Equal, LShift)", "Kc0", "Kc4", "Kc5", "Kc6", "Dot", ],
-        ["_", "_", "_", "WM(Kc8, LShift)", "WM(Kc5, LShift)", "WM(Comma, LShift)", "Kc1", "Kc2", "Kc3", "WM(Dot, LShift)", ],
-        ["_", "_", "_", "_", "_", "Enter", "_", "_", "_", "_", ],
-    ],
-    [
-        ["_", "F7", "F8", "F9", "F10", "_", "_", "_", "_", "_", ],
-        ["_", "F4", "F5", "F6", "F11", "_", "_", "_", "_", "_", ],
-        ["_", "F1", "F2", "F3", "F12", "_", "_", "_", "_", "_", ],
+    [ # 5 NAV
+        ["_", "_", "_", "_", "_", "Again", "Paste", "Copy", "Cut", "Undo", ],
+        ["LGui", "LAlt", "LCtrl", "LShift", "_", "Left", "Down", "Up", "Right", "CapsWordToggle", ],
+        ["_", "RAlt", "_", "_", "_", "Home", "PageDown", "PageUp", "End", "Insert", ],
         ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", ],
     ],
-    # extra just for use by VIAL if I want to have another layer without reflashing.
-    [
+    [ # 6 Media
         ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", ],
-        ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", ],
-        ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", ],
-        ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", ],
+        ["LGui", "LAlt", "LCtrl", "LShift", "_", "MediaPrevTrack", "AudioVolDown", "AudioVolUp", "MediaNextTrack", "_", ],
+        ["_", "RAlt", "_", "_", "_", "_", "_", "_", "_", "_", ],
+        ["_", "_", "_", "_", "_", "MediaStop", "MediaPlayPause", "AudioMute", "_", "_", ],
     ],
 ]
 
 [storage]
+clear_storage = true
 
 [behavior]
-tap_hold = { enable_hrm = true, prior_idle_time = "120ms", hold_timeout = "250ms", post_wait_time = "50ms"}
+tap_hold = { enable_hrm = true, prior_idle_time = "120ms", hold_timeout = "250ms", post_wait_time = "50ms" }
 
 [behavior.combo]
 timeout = "150ms"
 combos = [
-  { actions = ["Backspace", "Enter"], output = "Delete" },
-  { actions = ["Tab", "Space"], output = "Esc" },
+  { actions = ["LT(2, Backspace)", "LT(3, Enter)"], output = "LT(1, Delete)" },
+  { actions = ["LT(4, Tab)", "LT(5, Space)"], output = "LT(6, Escape)" },
+  { actions = ["SHIFTED(Kc9)", "SHIFTED(Kc0)"], output = "SHIFTED(Minus)" },
+  { actions = ["MouseBtn1", "MouseBtn2"], output = "MouseBtn3" },
 ]
 
 
