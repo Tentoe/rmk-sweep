@@ -10,7 +10,6 @@ chip = "rp2040"
 # not used for split keyboards
 
 
-
 [layout]
 rows = 4
 cols = 10
@@ -18,7 +17,7 @@ layers = 7
 keymap = [
     [ # 0 BASE
         ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", ],
-        ["MT(A, LGui)", "MT(S, LAlt)", "MT(D, LCtrl)", "MT(F, LShift)", "G", "H", "MT(J, LShift)", "MT(K, LCtrl)", "MT(L, LAlt)", "MT(Semicolon, LGui)", ],
+        ["MT(A, LGui)", "MT(S, LAlt)", "MT(D, LCtrl)", "MT(F, LShift)", "G", "H", "MT(J, LShift)", "MT(K, LCtrl)", "MT(L, LAlt)", "MT(Quote, LGui)", ],
         ["Z", "MT(X, RAlt)", "C", "V", "B", "N", "M", "Comma", "MT(Dot, RAlt)", "Slash", ],
         ["_", "_", "LT(1, Delete)", "LT(2, Backspace)", "LT(3, Enter)", "LT(4, Tab)", "LT(5, Space)", "LT(6, Escape)", "_", "_", ],
     ],
@@ -64,10 +63,10 @@ keymap = [
 clear_storage = true
 
 [behavior]
-tap_hold = { enable_hrm = true, prior_idle_time = "120ms", hold_timeout = "250ms", post_wait_time = "50ms" }
+tap_hold = { enable_hrm = true, prior_idle_time = "50ms", hold_timeout = "250ms", post_wait_time = "50ms" }
 
 [behavior.combo]
-timeout = "150ms"
+timeout = "50ms"
 combos = [
   { actions = ["LT(2, Backspace)", "LT(3, Enter)"], output = "LT(1, Delete)" },
   { actions = ["LT(4, Tab)", "LT(5, Space)"], output = "LT(6, Escape)" },
